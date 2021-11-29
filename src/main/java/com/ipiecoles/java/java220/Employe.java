@@ -80,15 +80,19 @@ public abstract class Employe {
     }
 
     // Exercice 103
-    public final Integer getNombreAnneeAnciennete() throws Exception {
-         /*Integer anciennete =0;
-         anciennete = LocalDate.now().getYear() - this.dateEmbauche.getYear();*/
+    /*public final Integer getNombreAnneeAnciennete() throws Exception {
+         Integer anciennete =0;
+         anciennete = LocalDate.now().getYear() - this.dateEmbauche.getYear();
          Integer nombreanneeAnciennete = LocalDate.now().getYear() - this.dateEmbauche.getYear();
         if(nombreanneeAnciennete <=0){
             throw new Exception("Le nombre d'annee d'anciennete ne peut être null, égale ou inférieur à 0");
         }
 
         return nombreanneeAnciennete;
+    }*/
+
+    public final Integer getNombreAnneeAnciennete() {
+        return LocalDate.now().getYear() - dateEmbauche.getYear();
     }
     // Exercice 105
     public Integer getNbConges(){
