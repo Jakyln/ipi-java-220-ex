@@ -15,7 +15,24 @@ public abstract class Employe {
     private String matricule;
     private LocalDate dateEmbauche;
     private Double salaire;
+    private Boolean tempsPartiel;
+    private String sex;
 
+    public Boolean getTempsPartiel() {
+        return tempsPartiel;
+    }
+
+    public void setTempsPartiel(Boolean tempsPartiel) {
+        this.tempsPartiel = tempsPartiel;
+    }
+
+    public String getSex() {
+        return sex;
+    }
+
+    public void setSex(String sex) {
+        this.sex = sex;
+    }
 
     // Exercice 102
      public Employe(){}
@@ -26,6 +43,16 @@ public abstract class Employe {
         this.matricule = matricule;
         this.dateEmbauche = dateEmbauche;
         this.salaire = salaire;
+    }
+
+    public Employe(String nom, String prenom, String matricule, LocalDate dateEmbauche, Double salaire,String sex,Boolean tempsPartiel) {
+        this.nom = nom;
+        this.prenom = prenom;
+        this.matricule = matricule;
+        this.dateEmbauche = dateEmbauche;
+        this.salaire = salaire;
+        this.sex = sex;
+        this.tempsPartiel = tempsPartiel;
     }
 
     public String getNom() {
@@ -122,11 +149,26 @@ public abstract class Employe {
                 Objects.equals(prenom, employe.prenom) &&
                 Objects.equals(matricule, employe.matricule) &&
                 Objects.equals(dateEmbauche, employe.dateEmbauche) &&
-                Objects.equals(salaire, employe.salaire);
+                Objects.equals(salaire, employe.salaire)&&
+                Objects.equals(sex, employe.sex)
+                ;
     }
 
     @Override
     public int hashCode(){
-         return Objects.hash(nom,prenom,matricule,dateEmbauche,salaire);
+         return Objects.hash(nom,prenom,matricule,dateEmbauche,salaire,tempsPartiel,sex);
+    }
+
+    public String toString() {
+        final StringBuilder sb = new StringBuilder("Employe{");
+        sb.append("nom='").append(nom).append('\'');
+        sb.append(", prenom='").append(prenom).append('\'');
+        sb.append(", matricule='").append(matricule).append('\'');
+        sb.append(", dateEmbauche=").append(dateEmbauche);
+        sb.append(", salaire=").append(salaire);
+        sb.append(", tempsPartiel=").append(tempsPartiel);
+        sb.append(", sex=").append(sex);
+        sb.append('}');
+        return sb.toString();
     }
 }
