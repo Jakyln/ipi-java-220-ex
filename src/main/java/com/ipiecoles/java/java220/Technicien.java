@@ -55,13 +55,8 @@ public class Technicien extends Employe {
         return Entreprise.primeAnnuelleBase()* (1+grade*0.1)+ Entreprise.PRIME_ANCIENNETE *this.getNombreAnneeAnciennete();
     }
 
-    @Override
+
     public int compareTo(Technicien o) {
-        if(this.getGrade() < o.getGrade()){
-            return -1;
-        } else if (this.getGrade() > o.getGrade()){
-            return 1;
-        }
-        return 0;
+        return Integer.compare(this.grade, o.getGrade());
     }
 }
