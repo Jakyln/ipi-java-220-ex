@@ -5,7 +5,7 @@ import org.joda.time.LocalDate;
 import java.util.Objects;
 
 public class Cadre extends Employe{
-    private Double coefficient = 1.0;
+    private Double coefficient = 1d;
 
     public Cadre(Double coefficient) {
         this.coefficient = coefficient;
